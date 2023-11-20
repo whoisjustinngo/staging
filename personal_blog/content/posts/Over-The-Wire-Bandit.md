@@ -1,7 +1,7 @@
 +++
 title = 'OverTheWire: Bandit'
 date = 2023-11-07
-draft = true
+draft = false
 tags = ['coding', 'ctf', 'cybersecurity']
 math = true
 +++
