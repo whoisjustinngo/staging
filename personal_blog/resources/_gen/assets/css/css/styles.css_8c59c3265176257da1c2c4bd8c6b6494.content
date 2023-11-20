@@ -1870,6 +1870,9 @@ html {
 .items-center {
   align-items: center;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-between {
   justify-content: space-between;
 }
@@ -1937,6 +1940,9 @@ html {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.pl-7 {
+  padding-left: 1.75rem;
 }
 .pt-2 {
   padding-top: 0.5rem;

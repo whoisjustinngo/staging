@@ -7,21 +7,18 @@
   <body class="flex flex-col h-screen justify-between" tabindex="0">
     
     {{- partial "header.html" . -}} 
+
+    
     
     <div class="mb-auto">
-    {{- if (eq .Kind "Section" ) -}} 
-      {{- .Render  "list" -}} 
-    {{- end -}}
-   
-    {{- block "main" . }}
-    
-    {{- end }}
+        {{- if (eq .Kind "Section" ) -}} 
+        {{- .Render  "list" -}} 
+        {{- end -}}
+        {{- block "main" . }}
+        {{- end }}
     </div>
     
     {{- partial "footer.html" . -}}
-    
-
-    
 
   </body>
 
