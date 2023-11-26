@@ -11,7 +11,7 @@ My name is Justin, and I'm an aspiring cybersecurity professional. I graduated w
 
 During my time in school I enjoyed learning about algorithms and computational complexity theory the most, and I hope to one day continue studying those topics a little more. I'm currently focused on improving my knowledge in cybersecurity and adjacent topics. I'm currently striving to improve my technical knowledge and practical skills, but I hope to one day work in threat intelligence research and investigation.
 
-This website is mainly for me to document the work I've done, the things I've learnt, and the skills I have. I might write about other topics in the future (philosophy perhaps?) if anything comes to mind, but since I'm currently focused on cybersecurity, my writeups will mostly be about cybersecurity and tech for now.
+This website is mainly for me to document the work I've done, the things I've learnt, and the skills I have. I might write about other topics in the future (philosophy perhaps?) if anything comes to mind, but since I'm currently focused on cybersecurity, my write-ups will mostly be about cybersecurity and tech for now.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/justin-ngo-359397202/).
 

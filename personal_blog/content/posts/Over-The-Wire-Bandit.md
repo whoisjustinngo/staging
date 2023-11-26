@@ -8,11 +8,11 @@ math = true
 
 ## Introduction
 
-This is my writeup for OverTheWire's ['Bandit' wargame](https://overthewire.org/wargames/bandit/), which is essentially a capture the flag (CTF) challenge with the flag in each level being a password you'll need to ssh into the next level. Each level is a separate server you need to SSH into. At each level, there is a problem statement indicating where the password is located in addition to some useful commands one might need to retrieve it.
+This is my writeup for OverTheWire's ['Bandit' wargame](https://overthewire.org/wargames/bandit/), which is essentially a capture the flag (CTF) challenge with the flag in each level being a password you'll need to ssh into the next level. Each level has a problem statement indicating the location of the password on the server, in addition to some useful commands one might need to retrieve it.
 
-Please look at the OverTheWire Bandit website for the problem statements. This document is not so much a tutorial or walkthrough, but more a journal to document my thought processes and the things I learnt in my journey to solve all the levels.
+Please look at the OverTheWire Bandit website for the problem statements. This document is not so much a tutorial or walkthrough, but a journal to document my thought processes and the things I learnt in my journey to solve all the levels.
 
-For context, I do have some experience using Linux commands so not everything is completely foreign to me. A goal I set for myself is to use the `man` page as much as possible and Google and the internet as little as possible.
+For context, I do have some experience using Linux commands and git so not everything is completely foreign to me. A goal I set for myself is to use the `man` page as much as possible and Google and the internet as little as possible.
 
 Here goes...
 
@@ -147,7 +147,7 @@ cat data.txt | grep 'millionth'
 
 ### <a name="level-8-level-9"></a> Level 8 $\rightarrow$ Level 9
 
-I took the hint in the problem statement and went to look at the `uniq` command. From reading the description section in its man page, I found out that the command filters _adjacent_ matching lines in the input, i.e. for each line, it looks at adjacent lines and discards duplicates. This means that the lines in the `data.txt` file had to be sorted, which could be done using the `sort` command.
+I took the hint in the problem statement and went to look at the `uniq` command. From reading the description section in its `man` page, I found out that the command filters _adjacent_ matching lines in the input, i.e. for each line, it looks at adjacent lines and discards duplicates. This means that the lines in the `data.txt` file had to be sorted, which could be done using the `sort` command.
 
 Since I was interested in the string which appeared only once, simply filtering out duplicated strings wouldn't be enough as we won't know how many times each string appeared in the original file. Therefore, we need to use the `--count` option to additionally display the number of occurrences of each unique string.
 
@@ -223,7 +223,7 @@ instead. I had to use `localhost` instead of the host address because I was tryi
 
 ### <a name="level-14-level-15"></a> Level 14 $\rightarrow$ Level 15
 
-I saw that one of the commands I might have needed to solve the level was `telnet`, and upon reading its man page I realised that it is used for interactive communication with another host. I decided to try
+I saw that one of the commands I might have needed to solve the level was `telnet`, and upon reading its `man` page I realised that it is used for interactive communication with another host. I decided to try
 
 ```bash
 telnet localhost 30000
@@ -314,7 +314,7 @@ I learnt that there was a way to accomplish this without using `tmux`, which is 
 
 ### <a name="level-21-level-22"></a>Level 21 $\rightarrow$ Level 22
 
-I navigated to `/etc/cron.d` as directed and found a file called `cronjob_bandit22`, which referenced an executable called `cronjob_bandit22.sh` in `usr/bin`. I read the contents of the executable and found that the password to access `bandit22` was written to a specified file in the `/tmp` directory. I simply used `cat` to display the contents of that file and retrieved the password to access the next level.
+I navigated to `/etc/cron.d` as directed and found a file called `cronjob_bandit22`, which referenced an executable called `cronjob_bandit22.sh` in `usr/bin`. I read the contents of the executable and found that the password to access bandit22 was written to a specified file in the `/tmp` directory. I simply used `cat` to display the contents of that file and retrieved the password to access the next level.
 
 <!-- WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff -->
 
@@ -324,7 +324,7 @@ I looked at the directory as directed and noticed a file `cronjob_bandit23` whic
 
 The name of the specific file the password will be stored in is determined by the output of the command `echo I am user $myname | md5sum | cut -d ' ' -f 1` where `$myname` is the output of running the `whoami` command.
 
-I figured the expected value of `$myname` was `bandit23`, and hence ran
+I figured the expected value of `$myname` was bandit23, and hence ran
 
 ```bash
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1
@@ -361,7 +361,7 @@ done
 
 Let's analyse this script line by line.
 
-**Lines 1-2:** the `whoami` command is executed and stored in the variable `myname`. The working directory is then changed to the `foo` subfolder of `/var/spool/$myname/foo`. My guess is that the expected value of `$myname` is `bandit24`, and I verified this by navigating to the `/var/spool` folder and finding that `bandit24` is the only file with a 'bandit' name in it.
+**Lines 1-2:** the `whoami` command is executed and stored in the variable `myname`. The working directory is then changed to the `foo` subfolder of `/var/spool/$myname/foo`. My guess is that the expected value of `$myname` is bandit24, and I verified this by navigating to the `/var/spool` folder and finding that `bandit24` is the only file with a 'bandit' name in it.
 
 **Line 3:** a message is printed out to the console telling the user that all scripts in a particular folder, in this case `/var/spool/bandit24/foo` will be executed and deleted. The problem statement says that I will have to write a shell script which will be deleted once executed. `/var/spool/bandit24/foo` is probably where the script should be.
 
@@ -373,11 +373,11 @@ Let's analyse this script line by line.
 
 **Line 7:** the `stat --format "%U" ./$i` extracts the username of the owner of the file `i`, which is stored in the variable `owner`.
 
-**Lines 8-9:** if the owner of the current file is `bandit23`, then line 9 is executed. Line 9 tries executing the current file (the `./$i` at the end) and if the execution takes more than 60 seconds a `SIGKILL` signal ('`-s 9`' from `man timeout` and `kill -l`) will be sent to kill the program.
+**Lines 8-9:** if the owner of the current file is bandit23, then line 9 is executed. Line 9 tries executing the current file (the `./$i` at the end) and if the execution takes more than 60 seconds a `SIGKILL` signal ('`-s 9`' from `man timeout` and `kill -l`) will be sent to kill the program.
 
 **Line 10:** removes (deletes) the current file.
 
-From analysing the script above, my idea was to write a script to be placed in `/var/spool/bandit24/foo` so that it is executed by `/usr/bin/cronjob_bandit24.sh`. The script will be something similar to `cronjob_bandit23.sh` and `cronjob_bandit22.sh` where the password for `bandit24` is written from `/etc/bandit_pass` to a file in `/tmp` for me to retrieve.
+From analysing the script above, my idea was to write a script to be placed in `/var/spool/bandit24/foo` so that it is executed by `/usr/bin/cronjob_bandit24.sh`. The script will be something similar to `cronjob_bandit23.sh` and `cronjob_bandit22.sh` where the password for bandit24 is written from `/etc/bandit_pass` to a file in `/tmp` for me to retrieve.
 
 The script I wrote was:
 
@@ -387,9 +387,9 @@ echo "Copying passwordfile /etc/bandit_pass/bandit24 to /tmp/bandit24_pass"
 cat /etc/bandit_pass/bandit24 > /tmp/bandit24_pass
 ```
 
-I intiially encountered some problems with `bandit24_pass` not being created at all. Revisiting `cron.d/cronjob_bandit24`, I found that `cronjob_bandit24.sh` will be ran either every minute or upon reboot. I went back to the `foo` folder, recreated my script, and waited for a minute. I then observed that the script I created disappeared as expected but there was still no `bandit24_pass` in `/tmp`.
+I intiially encountered some problems with 'bandit24_pass' not being created at all. Revisiting `cron.d/cronjob_bandit24`, I found that `cronjob_bandit24.sh` will be ran either every minute or upon reboot. I went back to the `foo` folder, recreated my script, and waited for a minute. I then observed that the script I created disappeared as expected but there was still no 'bandit24_pass' in `/tmp`.
 
-After some digging online, I suspected that this might be a permissions issue, i.e. `bandit24` not having enough permissions to execute my password retrieval script. Sure enough, after creating the script and running `ls -la` on it I found that there were no `x` (execute) permissions assigned to any users.
+After some digging online, I suspected that this might be a permissions issue, i.e. bandit24 not having enough permissions to execute my password retrieval script. Sure enough, after creating the script and running `ls -la` on it I found that there were no `x` (execute) permissions assigned to any users.
 
 Therefore, after creating the script, I quickly executed `chmod 777 <script name>` within a minute to change the permissions of the script before it is ran. After this the script ran as expected and I was able to retrieve the password for the next level.
 
@@ -417,29 +417,29 @@ and by executing `./get_bandit25_pass.sh | nc localhost 30002` I managed to retr
 
 ### <a name="level-25-level-26"></a> Level 25 $\rightarrow$ Level 26
 
-I found a sshkey for `bandit26` in the `bandit25` home directory. I copied the sshkey to a file on my local device, then tried logging in to the `bandit26` server using it, but was immediately logged out.
+I found a sshkey for bandit26 in the bandit25 home directory. I copied the sshkey to a file on my local device, then tried logging in to the bandit26 server using it, but was immediately logged out.
 
 I tried to add bash commands at the end of the `ssh` command just like in [level 18](#level-18-level-19) in an attempt to carry out some discovery, but every command I tried seemed to cause the connection to hang, requiring me to have to manually terminate it.
 
-After some [research](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/) I found that information about user accounts on the system such as home directory, user and group ID and more importantly, the shell, is stored in `/etc/passwd`. I found that the shell for `bandit26` was `/usr/bin/showtext`. Analysing the `showtext` file I found that it first sets the terminal emulator to linux, executes `more` on a file called `text.txt` located in the home directory of `bandit26`, then closes the connection.
+After some [research](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/) I found that information about user accounts on the system such as home directory, user and group ID and more importantly, the shell, is stored in `/etc/passwd`. I found that the shell for bandit26 was `/usr/bin/showtext`. Analysing the `showtext` file I found that it first sets the terminal emulator to linux, executes `more` on a file called `text.txt` located in the home directory of bandit26, then closes the connection.
 
-To be honest I was a little stuck and had to look at [a walkthrough](https://medium.com/@coturnix97/overthewires-bandit-25-26-shell-355d78fd2f4d) for some clues. The first thing to note is that even though connection to `bandit26` automatically terminates, it terminates after printing some ASCII art for `bandit26` not present in previous bandit levels:
+To be honest I was a little stuck and had to look at [a walkthrough](https://medium.com/@coturnix97/overthewires-bandit-25-26-shell-355d78fd2f4d) for some clues. The first thing to note is that even though connection to bandit26 automatically terminates, it terminates after printing some ASCII art for bandit26 not present in previous bandit levels:
 
 ![ASCII art for bandit26 not present in other stages](/staging/personal_blog/static/images/otw_bandit/bandit25_1.png)
 
-This corroborates the `showtext` script, and the `text.txt` which `more` is used to display probably contains the `bandit26` ASCII art. Since the ssh connection is closed only after the `more` command terminates, to delay the disconnection we can delay the `more` command from terminating.
+This corroborates the `showtext` script, and the `text.txt` which `more` is used to display probably contains the bandit26 ASCII art. Since the ssh connection is closed only after the `more` command terminates, to delay the disconnection we can delay the `more` command from terminating.
 
 Since the `more` command displays file contents one screenful at a time, we can delay the `more` command from terminating by resizing the screen to as small as possible before initiating the `ssh` connection.
 
 ![Resized window preventing more command from terminating](/staging/personal_blog/static/images/otw_bandit/bandit25_2.png)
 
-By reading the `man` page we can use `v` while `more` is executing to launch an editor for the `text.txt` file. While in the editor, we can use `:e /etc/bandit_pass/bandit26` to open the `bandit26` password file for editing, giving the password for `bandit26`.
+By reading the `man` page we can use `v` while `more` is executing to launch an editor for the `text.txt` file. While in the editor, we can use `:e /etc/bandit_pass/bandit26` to open the bandit26 password file for editing.
 
 <!-- c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1 -->
 
 ### <a name="level-26-level-27"></a> Level 26 $\rightarrow$ Level 27
 
-Continuing on from where we left off the previous stage, to get the password for `bandit27` we still need to obtain a shell so we can actually run some commands. It turns out that a shell can be launched from within vim using `:shell`, but the default shell first has to be changed from `showtext` to `bash`, which can also be done from within vim using `:set shell=/bin/bash` while in the command mode of the editor.
+Continuing on from where we left off the previous stage, to get the password for bandit27 we still need to obtain a shell so we can actually run some commands. It turns out that a shell can be launched from within vim using `:shell`, but the default shell first has to be changed from `showtext` to `bash`, which can also be done from within vim using `:set shell=/bin/bash` while in the command mode of the editor.
 
 Once we have a bash shell we can simply make use of the `bandit27-do` executable to retrieve the desired password from `/etc/bandit_pass/bandit27`.
 
@@ -447,15 +447,15 @@ Once we have a bash shell we can simply make use of the `bandit27-do` executable
 
 ### <a name="level-27-level-28"></a>Level 27 $\rightarrow$ Level 28
 
-First I changed the working directory to `/tmp/bandit27` where `bandit27` had permissions to create files and folders. Then I executed `git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo` to clone `repo` to the current working directory. The password for the next level was quite straightforward to find after this.
+First I changed the working directory to `/tmp/bandit27` where bandit27 had permissions to create files and folders. Then I executed `git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo` to clone `repo` to the current working directory. The password for the next level was quite straightforward to find after this.
 
 <!-- AVanL161y9rsbcJIsFHuw35rjaOM19nR -->
 
 ### <a name="level-28-level-29"></a> Level 28 $\rightarrow$ Level 29
 
-I cloned the repo as directed and analysed the `README.md` file. It displayed the credentials of `bandit29` with the password redacted. I executed `git log` to check the commit history, and found that there was a commit with the comment "fix data leak" after one with the comment "add missing data". My guess is that someone accidentally committed the password for `bandit29` and then redacted later to fix the leak. So if I am able to revert the file back to the pre-redaction commit I should be able to retrieve the password.
+I cloned the repo as directed and analysed the `README.md` file. It displayed the credentials of bandit29 with the password redacted. I executed `git log` to check the commit history, and found that there was a commit with the comment "fix data leak" after one with the comment "add missing data". My guess is that someone accidentally committed the password for bandit29 and then redacted later to fix the leak. So if I am able to revert the file back to the pre-redaction commit I should be able to retrieve the password.
 
-Thus, I ran `git revert <commit ID of the fix info leak commit>` and saw that the password for `bandit29` in `README.md` was no longer redacted.
+Thus, I ran `git revert <commit ID of the fix info leak commit>` and saw that the password for bandit29 in `README.md` was no longer redacted.
 
 <!-- tQKvmcwNYcFS6vmPHIUSI3ShmsrQZK8S -->
 
@@ -463,7 +463,7 @@ Thus, I ran `git revert <commit ID of the fix info leak commit>` and saw that th
 
 After cloning, I started out by digging through the `.git` directory and the commit history, but I didn't find anything helpful. However, since the password value in the `README.md` file says "no passwords in production!", I guessed that there were other pre-production branches which might be interesting to look at.
 
-To find all the branches available, both local and remote, I executed `git branch -a`. I found that there were a few branches including one called `dev`. To switch to that branch, I executed `git checkout -b dev`. `README.md` showed the password for `bandit30`.
+To find all the branches available, both local and remote, I executed `git branch -a`. I found that there were a few branches including one called `dev`. To switch to that branch, I executed `git checkout -b dev`. `README.md` showed the password for bandit30.
 
 <!-- xbhV3HpNGlTIdnjUrdAlPzc2L6y9EOnS -->
 
@@ -489,11 +489,11 @@ I then stumbled upon a [forum post](https://askubuntu.com/questions/590899/how-d
 
 ![Escaping uppershell and obtaining a shell](/staging/personal_blog/static/images/otw_bandit/bandit32.png)
 
-I then executed `/bin/bash` to switch to the familiar `bash` shell and now everything was 'back to normal'. I then tried to understand why entering `$0` worked. By looking at the `/etc/passwd` file I verified that `bandit32` starts up with `uppershell` as the default shell. From my research, `$0` stores the value of the current shell the user was in.
+I then executed `/bin/bash` to switch to the familiar `bash` shell and now everything was 'back to normal'. I then tried to understand why entering `$0` worked. By looking at the `/etc/passwd` file I verified that bandit32 starts up with `uppershell` as the default shell. From my research, `$0` stores the value of the current shell the user was in.
 
 So it turns out that when I was in uppershell I was actually in `sh`. I actually missed out a little detail corroborating this and might've helped me solve this earlier: while in uppershell, the output of most executed commands began with `sh : 1 : ...`, just like in `sh`. Therefore when I executed `$0` in uppershell `sh` resolved `$0` to 'current shell', i.e. `sh` and executed `sh` which gave me the shell.
 
-It turns out that `uppershell` was executed as `bandit33` which can be confirmed by running `whoami`. This means that retrieving the password is simply going to the `/etc/bandit_pass` folder and looking at the relevant file. This was a fun level.
+It turns out that `uppershell` was executed as bandit33 which can be confirmed by running `whoami`. This means that retrieving the password is simply going to the `/etc/bandit_pass` folder and looking at the relevant file. This was a fun level.
 
 (If you are stuck in uppershell, you can [terminate the `ssh` session](https://superuser.com/questions/467398/how-do-i-exit-an-ssh-connection) by hitting enter then `~.`)
 
@@ -501,7 +501,7 @@ It turns out that `uppershell` was executed as `bandit33` which can be confirmed
 
 ## Conclusion
 
-Connecting to `bandit33` gave the following:
+Connecting to bandit33 gave the following:
 
 ![The end!](/staging/personal_blog/static/images/otw_bandit/bandit33.png)
 
