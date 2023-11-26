@@ -1698,23 +1698,11 @@ html {
 .items-center {
   align-items: center;
 }
-.justify-normal {
-  justify-content: normal;
-}
 .justify-start {
   justify-content: flex-start;
 }
-.justify-end {
-  justify-content: flex-end;
-}
-.justify-center {
-  justify-content: center;
-}
 .justify-between {
   justify-content: space-between;
-}
-.justify-stretch {
-  justify-content: stretch;
 }
 .gap-4 {
   gap: 1rem;
@@ -1766,9 +1754,6 @@ html {
 }
 .pb-10 {
   padding-bottom: 2.5rem;
-}
-.pb-5 {
-  padding-bottom: 1.25rem;
 }
 .pl-7 {
   padding-left: 1.75rem;
