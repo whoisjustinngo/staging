@@ -1612,11 +1612,17 @@ html {
 .fixed {
   position: fixed;
 }
-.bottom-14 {
-  bottom: 3.5rem;
+.bottom-10 {
+  bottom: 2.5rem;
 }
-.right-14 {
-  right: 3.5rem;
+.bottom-7 {
+  bottom: 1.75rem;
+}
+.right-10 {
+  right: 2.5rem;
+}
+.right-7 {
+  right: 1.75rem;
 }
 .top-0 {
   top: 0px;
