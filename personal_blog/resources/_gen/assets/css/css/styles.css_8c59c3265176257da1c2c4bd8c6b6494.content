@@ -1668,26 +1668,8 @@ html {
 .h-screen {
   height: 100vh;
 }
-.min-h-\[200px\] {
-  min-height: 200px;
-}
-.min-h-\[300px\] {
-  min-height: 300px;
-}
-.min-h-\[35000px\] {
-  min-height: 35000px;
-}
-.min-h-\[350px\] {
-  min-height: 350px;
-}
 .min-h-\[400px\] {
   min-height: 400px;
-}
-.min-h-\[500px\] {
-  min-height: 500px;
-}
-.min-h-\[800px\] {
-  min-height: 800px;
 }
 .w-4 {
   width: 1rem;
@@ -1716,11 +1698,23 @@ html {
 .items-center {
   align-items: center;
 }
+.justify-normal {
+  justify-content: normal;
+}
 .justify-start {
   justify-content: flex-start;
 }
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
 .justify-between {
   justify-content: space-between;
+}
+.justify-stretch {
+  justify-content: stretch;
 }
 .gap-4 {
   gap: 1rem;
@@ -1766,20 +1760,15 @@ html {
 .p-4 {
   padding: 1rem;
 }
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-.py-24 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
-.pb-24 {
-  padding-bottom: 6rem;
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 .pl-7 {
   padding-left: 1.75rem;
