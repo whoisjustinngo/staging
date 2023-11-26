@@ -1668,8 +1668,26 @@ html {
 .h-screen {
   height: 100vh;
 }
+.min-h-\[200px\] {
+  min-height: 200px;
+}
+.min-h-\[300px\] {
+  min-height: 300px;
+}
+.min-h-\[35000px\] {
+  min-height: 35000px;
+}
+.min-h-\[350px\] {
+  min-height: 350px;
+}
 .min-h-\[400px\] {
   min-height: 400px;
+}
+.min-h-\[500px\] {
+  min-height: 500px;
+}
+.min-h-\[800px\] {
+  min-height: 800px;
 }
 .w-4 {
   width: 1rem;
@@ -1748,6 +1766,10 @@ html {
 .p-4 {
   padding: 1rem;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -1756,11 +1778,17 @@ html {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
+.pb-24 {
+  padding-bottom: 6rem;
+}
 .pl-7 {
   padding-left: 1.75rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
+}
+.pt-24 {
+  padding-top: 6rem;
 }
 .text-justify {
   text-align: justify;

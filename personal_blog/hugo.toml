@@ -27,7 +27,6 @@ keywords = ["cybersecurity", "portfolio", "tech", "hacking", "coding", "threat i
 copy = 'Justin Ngo. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="link">Some rights reserved.</a>'
 
 [[params.social]]
-
 name = "LinkedIn"
 url = "https://www.linkedin.com/in/justin-ngo-359397202/"
 icon = "fa-brands fa-linkedin"
