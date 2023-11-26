@@ -1,5 +1,5 @@
 baseURL = "https://whoisjustinngo.github.io/"
-title = "Musings"
+title = "Whois Justin Ngo?"
 theme = "salinger"
 
 [params]
@@ -9,21 +9,19 @@ author = "Justin Ngo"
 twemoji = true
 text404 = "It looks like the page you're looking for doesn't exist. Go <a href=\"/\">home</a>."
 
-#DateFormat = "dd Jan 2006"
-
 
 mainMenuShowThemes = false
 showFooterOnHomepage = true
 showHeaderOnHomepage = true
-showSocialOnHomepage = true
+showSocialOnHomepage = false
 showOnlyFeaturedPost = false
 
 filterCoverImages = true
 
 [params.meta]
-title = "Salinger Theme for Hugo built with TailwindCSS and DaisyUI"
-description = "Salinger is a clean, minimalistic, mobile-first, blazing-fast, fancy and lightweight theme for the Hugo framework built with TailwindCSS and DaisyUI"
-keywords = ["simple", "minimal", "clean", "fast", "blog", "portfolio", "responsive", "twemoji", "recursion", "section", "tailwind", "daisyui"]
+title = "Portfolio of an aspiring cybersecurity professional"
+description = "My name is Justin, and this is my blog where I will document things I've done, skills I've acquired, and things I've learnt."
+keywords = ["cybersecurity", "portfolio", "tech", "hacking", "coding", "threat intelligence", "github pages", "hugo"]
 
 [params.footer]
 copy = 'Justin Ngo. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="link">Some rights reserved.</a>'
@@ -35,21 +33,21 @@ url = "https://www.linkedin.com/in/justin-ngo-359397202/"
 icon = "fa-brands fa-linkedin"
 featured = true # true to be displayed in the home hero.
 
-[Menu]
-[[menu.main]]
-name = "Posts"
-url = "/posts/"
-weight = 1
+#[Menu]
+#[[menu.main]]
+#name = "Posts"
+#url = "/posts/"
+#weight = 1
 
-[[menu.main]]
-name = "About me"
-url = "/posts/Hello_world"
-weight = 2
+#[[menu.main]]
+#name = "About me"
+#url = "/posts/Hello_world"
+#weight = 2
 
-[[menu.footer]]
-name = "Privacy Policy"
-url = "/privacy"
-weight= 1 
+#[[menu.footer]]
+#name = "Privacy Policy"
+#url = "/privacy"
+#weight= 1 
 
 [taxonomies]
 tags = "tags"
