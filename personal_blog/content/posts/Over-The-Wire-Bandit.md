@@ -304,7 +304,7 @@ To be honest I had no idea how to solve this level and had to consult some write
 
 To accomplish 2 and 3 at the same time, I used `tmux` with the help of an online tutorial to start a new session with 2 terminals side by side.
 
-![Double terminals using tmux](/staging/personal_blog/static/images/otw_bandit/bandit20.png)
+![Double terminals using tmux](/images/otw_bandit/bandit20.png)
 
 After choosing a suitable port with `nmap`, on the first terminal I ran `echo <level 20 password> | nc -l localhost <port>`. I then switched to the second terminal and ran `./suconnect <port>`. This caused a connection to be made to `<port>` and the `echo` command 'sending' the `<level 20 password>` to the `suconnect` binary. The binary transmitted the password for the next level to the connected port on localhost where `nc` was still listening on, and the password for the next level was printed to the console.
 
@@ -425,13 +425,13 @@ After some [research](https://www.cyberciti.biz/faq/understanding-etcpasswd-file
 
 To be honest I was a little stuck and had to look at [a walkthrough](https://medium.com/@coturnix97/overthewires-bandit-25-26-shell-355d78fd2f4d) for some clues. The first thing to note is that even though connection to bandit26 automatically terminates, it terminates after printing some ASCII art for bandit26 not present in previous bandit levels:
 
-![ASCII art for bandit26 not present in other stages](/staging/personal_blog/static/images/otw_bandit/bandit25_1.png)
+![ASCII art for bandit26 not present in other stages](/images/otw_bandit/bandit25_1.png)
 
 This corroborates the `showtext` script, and the `text.txt` which `more` is used to display probably contains the bandit26 ASCII art. Since the ssh connection is closed only after the `more` command terminates, to delay the disconnection we can delay the `more` command from terminating.
 
 Since the `more` command displays file contents one screenful at a time, we can delay the `more` command from terminating by resizing the screen to as small as possible before initiating the `ssh` connection.
 
-![Resized window preventing more command from terminating](/staging/personal_blog/static/images/otw_bandit/bandit25_2.png)
+![Resized window preventing more command from terminating](/images/otw_bandit/bandit25_2.png)
 
 By reading the `man` page we can use `v` while `more` is executing to launch an editor for the `text.txt` file. While in the editor, we can use `:e /etc/bandit_pass/bandit26` to open the bandit26 password file for editing.
 
@@ -487,7 +487,7 @@ I spent a good half an hour trying random stuff to try to understand how the upp
 
 I then stumbled upon a [forum post](https://askubuntu.com/questions/590899/how-do-i-check-which-shell-i-am-using) with someone asking how to check which shell they were using. The top answer was to use `echo $0`, but knowing that `echo` wouldn't work for me I just entered `$0`... and I magically obtained a shell!
 
-![Escaping uppershell and obtaining a shell](/staging/personal_blog/static/images/otw_bandit/bandit32.png)
+![Escaping uppershell and obtaining a shell](/images/otw_bandit/bandit32.png)
 
 I then executed `/bin/bash` to switch to the familiar `bash` shell and now everything was 'back to normal'. I then tried to understand why entering `$0` worked. By looking at the `/etc/passwd` file I verified that bandit32 starts up with `uppershell` as the default shell. From my research, `$0` stores the value of the current shell the user was in.
 
@@ -503,7 +503,7 @@ It turns out that `uppershell` was executed as bandit33 which can be confirmed b
 
 Connecting to bandit33 gave the following:
 
-![The end!](/staging/personal_blog/static/images/otw_bandit/bandit33.png)
+![The end!](/images/otw_bandit/bandit33.png)
 
 The end! This has been a long but extremely fun and fruitful journey. Some levels were pretty simple because I had some experience with the necessary commands, and some levels forced me to familiarise myself with new commands I've never used before. Some things I've learnt along the way include:
 

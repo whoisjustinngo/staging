@@ -1612,14 +1612,8 @@ html {
 .fixed {
   position: fixed;
 }
-.bottom-10 {
-  bottom: 2.5rem;
-}
 .bottom-7 {
   bottom: 1.75rem;
-}
-.right-10 {
-  right: 2.5rem;
 }
 .right-7 {
   right: 1.75rem;
