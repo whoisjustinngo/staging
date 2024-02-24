@@ -124,6 +124,7 @@
       "z-90"
     ],
     "ids": [
+      "a-futile-attempt-at-static-analysis",
       "a-namelevel-0-level-1a-level-0-rightarrow-level-1",
       "a-namelevel-1-level-2a-level-1-rightarrow-level-2",
       "a-namelevel-1-level-2a-level-1-rightarrow-level-2-a-namel1a",
@@ -162,7 +163,14 @@
       "conclusion",
       "introduction",
       "levels",
-      "to-top-button"
+      "loading-the-apk",
+      "performing-the-bypass-with-frida",
+      "retrieving-the-flag",
+      "setting-up-the-proxy-in-burpsuite",
+      "ssl-unpinning",
+      "the-challenge",
+      "to-top-button",
+      "why-did-replacing-the-bypass-script-work"
     ]
   }
 }
