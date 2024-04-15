@@ -1,5 +1,5 @@
 +++
-title = 'OverTheWire: Bandit'
+title = 'PicoCTF 2022'
 date = 2023-11-26
 draft = true
 tags = ['coding', 'ctf', 'cybersecurity']
