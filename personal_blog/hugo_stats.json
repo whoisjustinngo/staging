@@ -38,7 +38,8 @@
       "thead",
       "title",
       "tr",
-      "ul"
+      "ul",
+      "user-id"
     ],
     "classes": [
       "-m-3",
@@ -132,6 +133,14 @@
     ],
     "ids": [
       "a-futile-attempt-at-static-analysis",
+      "a-namebaby-authababy-auth",
+      "a-namebaby-bonechewerconababy-bonechewercon",
+      "a-namebaby-breaking-gradababy-breaking-grad",
+      "a-namebaby-nginxatsuababy-nginxatsu",
+      "a-namebaby-todo-or-not-todoababy-todo-or-not-todo",
+      "a-namebaby-waffles-orderababy-waffles-order",
+      "a-namebaby-website-rickababy-website-rick",
+      "a-namefull-stack-confafull-stack-conf",
       "a-namelevel-0-level-1a-level-0-rightarrow-level-1",
       "a-namelevel-0a-level-0",
       "a-namelevel-1-level-2a-level-1-rightarrow-level-2",
@@ -200,6 +209,8 @@
       "a-namelevel-8a-level-8",
       "a-namelevel-9-level-10a-level-9-rightarrow-level-10",
       "a-namelevel-9a-level-9",
+      "a-namelooking-glassalooking-glass",
+      "a-namesanitizeasanitize",
       "a-namestart-level-0a-start-rightarrow-level-0",
       "challenges",
       "conclusion",
@@ -210,6 +221,7 @@
       "retrieving-the-flag",
       "setting-up-the-proxy-in-burpsuite",
       "ssl-unpinning",
+      "stages",
       "the-challenge",
       "to-top-button",
       "why-did-replacing-the-bypass-script-work"
